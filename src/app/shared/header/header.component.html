@@ -1,0 +1,24 @@
+<div class="toolbar" role="banner">
+  <img
+    width="100"
+    alt="Angular Logo"
+    src="./assets/img/logoVotaciones.png"
+  />
+  <span class="title">Rating photos skill test </span>
+    <div class="spacer"></div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex">
+  <div class="container-fluid text-end" >
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav text-uppercase ">
+        <li class="nav-item"><a routerLink="/dashboard" class="nav-link">Ver Fotos</a></li>
+        <li class="nav-item"><a routerLink="/dashboard/aboutme"class="nav-link">Mis fotos</a></li>
+        <li class="nav-item"><a routerLink="/dashboard/cargarFotos" class="nav-link">Cargar Fotos</a></li>
+        <li class="nav-item"><a routerLink="/dashboard/administracion" class="nav-link">{{admin}}</a></li>
+        <button type="button" class="btn btn-success" (click)="logout()" routerLink="/login" >Salir</button>
+
+      </ul>
+    </div>
+  </div>
+</nav>

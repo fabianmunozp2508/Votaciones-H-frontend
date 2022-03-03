@@ -1,0 +1,78 @@
+<div class="bg-primary-dark position-relative overflow-hidden p-20">
+  <div class="container content-space-2">
+    <div class="row justify-content-center align-items-lg-center">
+      <div class="col-md-8 col-lg-6 mb-7 mb-lg-0">
+        <!-- Heading -->
+        <div class="pe-lg-3 mb-7">
+          <h1 class="display-3 text-white mb-3 mb-md-5">
+            <span class="text-danger">
+              <span class="js-typedjs" data-hs-typed-options="{
+                      &quot;strings&quot;: [&quot;team.&quot;, &quot;startup.&quot;, &quot;business.&quot;],
+                      &quot;typeSpeed&quot;: 90,
+                      &quot;loop&quot;: true,
+                      &quot;backSpeed&quot;: 30,
+                      &quot;backDelay&quot;: 2500
+                    }">Cargar Imagen.</span>
+            </span>
+          </h1>
+          <p class="lead text-white-70 contenido">Sube tus imagenes para participar el el consurso, recuerda que son maximo dos imagenes.</p>
+        </div>
+        <div class="row">
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Col -->
+      <div class="col-md-8 col-lg-6">
+        <div class="ps-lg-5">
+          <!-- Card -->
+          <div class="card card-lg">
+            <div class="card-body">
+              <div class="row align-items-sm-center mb-5">
+                <div class="col-sm-auto order-sm-2 mb-3 mb-sm-0">
+                  <img class="imagen" src="./assets/img/logoVotaciones.png" alt="Image Description">
+                </div>
+                <!-- End Col -->
+                <div class="col-sm">
+                  <h5 class="card-title">Participa</h5>
+                  <p class="card-text">Solo fotografias de la ciudad.</p>
+                </div>
+              </div>
+              <form
+               [formGroup]="ImagenForm"
+               (ngSubmit)="subirArchivo()">
+                <div class="mb-4">
+                  <label class="form-label" for="Titulo">Titulo de la imagen</label>
+                  <input type="text" class="form-control form-control-lg" name="title" formControlName="title"  name="title" id="title" id="registerName" placeholder="Titulo de la imagen" aria-label="Type your name" required="" data-msg="Please enter your name.">
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="descripcion">Describe la imagen</label>
+                  <input type="text" class="form-control form-control-lg" formControlName="description"  name="description" id="description" placeholder="Descrición de la Imagen" aria-label="example@site.com" required="" data-msg="Please enter a valid email address.">
+                </div>
+
+                <div class="mb-4">
+                  <div>
+                    <input
+                    id="file-input"
+                    (change)="capturarFile($event)"
+                    formControlName="filename"
+                    name="filename"
+                    enctype='multipart/form-data' type="file">
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-primary m-3"
+                     [disabled]="ImagenForm.invalid"
+                     type="submit">Subir imagen</button>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+

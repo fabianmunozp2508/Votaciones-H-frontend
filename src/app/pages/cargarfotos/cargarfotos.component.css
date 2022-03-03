@@ -1,0 +1,15 @@
+.uploadPhotos{
+  padding : 200 20 20 20;
+}
+.contenido{
+  font-size: 20px;
+  font-family: 'Roboto Serif', sans-serif;
+}
+
+.menu{
+  font-size: 12px;
+  font-family: 'Roboto Serif', sans-serif;
+}
+img{
+  height: 120px;
+}

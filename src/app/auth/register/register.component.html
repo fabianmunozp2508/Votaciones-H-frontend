@@ -1,0 +1,52 @@
+<main class="form-signin">
+  <img class="mb-4"  id="imagen"  src="./assets/img/logoVotaciones.png" alt="" width="72" height="57">
+  <form
+       autocomplete="off"
+       [formGroup]="registerForm"
+       (ngSubmit)="register()"
+       id="loginform">
+    <h1 class="h3 mb-3 fw-normal title">Registro de nuevo usuario</h1>
+    <div class="form-floating boderButton" >
+      <input
+           class="form-control"
+           type="text"
+           #input
+           placeholder="Nombre completo"
+           formControlName="nombre"
+           class="form-control" id="floatingInput" placeholder="Nombre completo">
+      <label for="floatingInput">Nombres</label>
+    </div>
+    <div class="form-floating boderButton" >
+      <input
+           class="form-control"
+           type="email"
+           #input
+           placeholder="Email"
+           formControlName="email"
+           class="form-control" id="floatingInput" placeholder="Correo Electronico">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating boderButton">
+      <input
+      type="password"
+      placeholder="Password"
+      formControlName="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button class="w-100 btn btn-lg btn-primary" type="button" routerLink="../login">Login</button>
+      </div>
+      <div class="col">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
+      </div>
+    </div>
+  </div>
+    <div class="fb-login-button m-3 p-2" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false"></div>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; {{anio}}</p>
+  </form>
+</main>
+

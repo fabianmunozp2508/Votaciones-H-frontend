@@ -1,0 +1,94 @@
+<div class="row animated fadeIn fast">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-body">
+
+              <input type="text"
+                      class="form-control"
+                      placeholder="Buscar imagen por titulo"
+                      #txtTermino
+                      (keyup)="buscar( txtTermino.value )"/>
+
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row animated fadeIn fast"
+     *ngIf="cargando">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading">Cargando</h4>
+          <i class="fa fa-spin fa-refresh fa-2x"></i>
+          <p class="mb-0">Por favor espere</p>
+        </div>
+    </div>
+</div>
+<div >
+<div class="row animated fadeIn fast"
+    *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Total de usuarios ({{ totalUsuarios }})</h4>
+                <h6 class="card-subtitle">Usuarios registrados en mi aplicación</h6>
+                <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th class="w140">Imagenes</th>
+                <th class="text-nowrap w100">Acciones</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let image of Image2 ; let i = index">
+              <tr>
+              <td>{{ image.usuario.nombre }}</td>
+              <td>{{ image.usuario.email }}</td>
+              <td>{{ image.title}}</td>
+              <td class="text-nowrap text-center">
+              <button type="button" class="btn btn-success m-2"  data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal'+image._id">Ver fotos</button>
+              </td>
+              </tr>
+             <!--Contenido Imagenes inicio-->
+               <div class="modal fade" id="exampleModal{{image._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">{{image.usuario.nombre}}</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                      <div class="card" style="width: 18rem;">
+                        <img src="../assets/uploads/post/{{image.filename}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{image.title}}</h5>
+                          <p class="card-text">{{image.description}}.</p>
+                          <button type="button" class="btn btn-primary m-2" (click)="publicar(image.usuario.uid)">Publicar</button>
+                          <a  class="btn btn-danger" (click)="borrarFoto(image._id)">Eliminar foto</a>
+                        </div>
+                      </div>
+                     </div>
+                     <div class="modal-footer">
+
+                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             <!--Contenido Imagenes fin-->
+              </tbody>
+           </table>
+    </div>
+
+    <button class="btn btn-secondary">Anteriores</button>
+     &nbsp;
+    <button class="btn btn-secondary">Siguientes</button>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>

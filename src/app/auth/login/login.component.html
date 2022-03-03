@@ -1,0 +1,50 @@
+<main class="form-signin">
+  <img class="mb-4"  id="imagen"  src="./assets/img/logoVotaciones.png" alt="" width="72" height="57">
+  <form
+       autocomplete="off"
+       [formGroup]="loginForm"
+       (ngSubmit)="login()"
+       id="loginform">
+    <h1 class="h3 mb-3 fw-normal title">Ingresar sus credenciales</h1>
+
+    <div class="form-floating boderButton" >
+      <input
+           class="form-control"
+           type="email"
+           #input
+           placeholder="Email"
+           formControlName="email"
+           class="form-control" id="floatingInput" placeholder="Correo Electronico">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating boderButton">
+      <input
+      type="password"
+      placeholder="Password"
+      formControlName="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="checkbox checkbox-primary pull-left p-t-0">
+      <input id="checkbox-signup"
+              type="checkbox"
+              class="filled-in chk-col-light-blue"
+              formControlName="remember">
+      <label for="checkbox-signup">&nbsp; Remember me </label>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button class="w-100 btn  btn-primary" type="submit">Sign in</button>
+      </div>
+      <div class="col">
+        <button type="button" routerLink="../register" class=" w-100 btn btn  btn-success">Crear cuenta</button>
+      </div>
+    </div>
+  </div>
+
+  </form>
+
+    <button  type="button" class="facebook-button m-4" (click)="loginF()">Iniciar Sesión con facebook</button>
+
+  <p class="mt-5 mb-3 text-muted text-center">&copy; {{anio}}</p>
+</main>
