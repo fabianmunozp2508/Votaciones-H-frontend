@@ -18,9 +18,9 @@
   <div class="container"  >
   <div class="card-gallery" >
     <div *ngFor="let imagen of Image2">
-    <div class="card" *ngIf="!publicado" >
+    <div class="card" [ngClass]="{'nomostrar': !imagen.publicado}">
       <div class="card-img">
-          <img src="../assets/uploads/post/{{imagen.filename}}" alt="">
+          <img src="https://picsum.photos/200/150"  alt="">
       </div>
      <div class="card-content">
       <div class="author"><img src="https://picsum.photos/50/50" alt="" class="avatar"><span>{{imagen.timestamp  | date}}</span></div>

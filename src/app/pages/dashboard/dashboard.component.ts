@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  mostrarImagen : String = ""
   myDate = new Date();
   public votaciones :boolean = false;
   public publicar:Image
@@ -53,11 +54,12 @@ ImagenesUser() {
              for(let i = 0 ; i < data.length ; i++){
               const publicar = data[i].publicado;
               if ( publicar === true){
-                this.publicado = true
+                this.publicado === true;
                 console.log('puedes publicar' + data)
               }else{
-                this.publicado = false
+                this.publicado === false
                 console.log('No puedes publicar')
+
               }
               this.Image2 = Image;
             }

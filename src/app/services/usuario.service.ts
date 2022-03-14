@@ -147,7 +147,7 @@ cargarVoto( usuario: Usuario ) {
     return this.http.patch( url, this.headers );
   }
   publicarFoto( uid) {
-    const url = `${ base_url }/usuarios/voto/publicar/${ uid }`;
+    const url = `${ base_url }/social/imagenes/usuario/publicar/${ uid }`;
     return this.http.patch( url, this.headers );
   }
   loginFacebook( ) {
