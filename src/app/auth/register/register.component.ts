@@ -10,7 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  url ="http://localhost:8080/vph/login/facebook"
   anio: number = new Date().getFullYear();
 
   public formSubmitted = false;

@@ -7,12 +7,13 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PagesModule } from './pages/pages.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NopagefoundComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -20,6 +21,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     PagesModule,
     AuthModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

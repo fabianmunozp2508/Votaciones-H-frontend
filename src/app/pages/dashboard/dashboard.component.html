@@ -1,7 +1,6 @@
-
+<!-- Titulo y logo -->
 <div>
-  <!-- Cabecera -->
-  <div class="pe-lg-3 mb-7">
+<div class="pe-lg-3 mb-7">
     <h1 class="display-3 text-white mb-3 mb-md-5">
       <span class="text-danger">
         <span class="js-typedjs text-center" data-hs-typed-options="{
@@ -14,32 +13,22 @@
       </span>
     </h1>
     <p class="lead text-white-70  text-center contenido">Imagenes que han sido seleccionadas para el concurso.</p>
-  </div>
-  <div class="container"  >
-  <div class="card-gallery" >
-    <div *ngFor="let imagen of Image2">
-    <div class="card" [ngClass]="{'nomostrar': !imagen.publicado}">
-      <div class="card-img">
-          <img src="https://picsum.photos/200/150"  alt="">
-      </div>
-     <div class="card-content">
-      <div class="author"><img src="https://picsum.photos/50/50" alt="" class="avatar"><span>{{imagen.timestamp  | date}}</span></div>
-       <div class="card-title">{{imagen.usuario.nombre}}</div>
-       <div class="card-text">{{imagen.title}}</div>
-       <div class="container">
-        <div class="row">
-        <div class="col">
-        <div class="col">
-        <div>{{imagen.vote}} <i class="material-icons">pan_tool</i></div>
+</div>
+
+<!-- Carga de imagenes para votar ciclo for -->
+<div class="container d-flex align-items-center justify-content-center position-relative flex-wrap">
+    <div class="card d-flex position-relative flex-column" *ngFor="let imagen of Image2"  [ngClass]="{'nomostrar': !imagen.publicado}">
+        <div class='imgContainer' >
+          <img src="../assets/uploads/post/{{imagen.filename}}"> </div>
+        <div class="content">
+            <h5 class="autor text-center fw-bold text-capitalize">{{imagen.usuario.nombre}}</h5>
+            <p class="title">{{imagen.title}}</p>
         </div>
-       </div>
-          <div class="d-grid gap-2">
+        <div>{{imagen.vote}} <label class="fw-bold">Votos</label></div>
+        <div class="d-grid gap-2">
           <button class="btn btn-primary m-4" type="submit"  (click)="votacion(imagen.usuario.uid)" (click)="vote(imagen._id)" *ngIf="!votaciones">Votar</button>
-          <p class="text-danger text-center" type="text"  *ngIf="votaciones">Usted ya ha votado</p>
+          <p class="text-danger text-center fw-bold" type="text"  *ngIf="votaciones">Usted ya ha votado</p>
         </div>
-      </div>
-     </div>
     </div>
-  </div>
-  </div>
-  </div>
+</div>
+

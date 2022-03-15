@@ -6,15 +6,12 @@ import {HttpClientModule } from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PagesModule } from '../pages/pages.module';
-import { SelectorFotoComponent } from './selector-foto/selector-foto.component';
+
 
 @NgModule({
   declarations:[
     LoginComponent,
-    RegisterComponent,
-    
-    SelectorFotoComponent
-
+    RegisterComponent
   ],
   exports: [LoginComponent,
             RegisterComponent],

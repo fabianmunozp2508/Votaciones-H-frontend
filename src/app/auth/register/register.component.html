@@ -1,3 +1,5 @@
+<section id="wrapper" class="login-register login-sidebar" style="background-image:url(../assets/media/fondologin.webp);">
+  <div class="login-box card">
 <main class="form-signin">
   <img class="mb-4"  id="imagen"  src="./assets/img/logoVotaciones.png" alt="" width="72" height="57">
   <form
@@ -5,7 +7,7 @@
        [formGroup]="registerForm"
        (ngSubmit)="register()"
        id="loginform">
-    <h1 class="h3 mb-3 fw-normal title">Registro de nuevo usuario</h1>
+    <h2 class="h3 mb-3 fw-normal title text-center">Registro de nuevo usuario</h2>
     <div class="form-floating boderButton" >
       <input
            class="form-control"
@@ -41,12 +43,15 @@
         <button class="w-100 btn btn-lg btn-primary" type="button" routerLink="../login">Login</button>
       </div>
       <div class="col">
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
+        <button class="w-100 btn btn-lg btn-success" type="submit">Enviar</button>
       </div>
     </div>
   </div>
-    <div class="fb-login-button m-3 p-2" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false"></div>
-    <p class="mt-5 mb-3 text-muted text-center">&copy; {{anio}}</p>
+  <div class="d-grid gap-2">
+    <a href={{url}} class="btn btn-primary my-3 text-center"><span class="fa fa-facebook"></span> Facebook</a>
+    </div>
   </form>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; {{anio}}</p>
 </main>
-
+  </div>
+</section>

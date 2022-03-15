@@ -151,8 +151,8 @@ cargarVoto( usuario: Usuario ) {
     return this.http.patch( url, this.headers );
   }
   loginFacebook( ) {
-    const url = `${ base_urlF }`;
-    return this.http.post(url,this.headers);
+    const url = `http://localhost:8080/vph/auth/facebook/token`;
+    return this.http.get(url,this.headers);
 
   }
 

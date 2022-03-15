@@ -14,26 +14,21 @@ export class LoginComponent implements OnInit {
   public formSubmitted = false;
   public auth2: any;
   anio: number = new Date().getFullYear();
+  url ="http://localhost:8080/vph/login/facebook"
 
   public loginForm = this.fb.group({
     email: [ localStorage.getItem('email') || '' , [ Validators.required, Validators.email ] ],
     password: ['', Validators.required ],
     remember: [false]
   });
-
   constructor( public _servicio: MyInfoService,
                private router: Router,
                private fb: FormBuilder,
                private usuarioService: UsuarioService,
                private ngZone: NgZone) {
-
   }
-
   ngOnInit(): void {
-
   }
-
-
   login() {
     this.formSubmitted = true;
     if ( this.loginForm.invalid ) {

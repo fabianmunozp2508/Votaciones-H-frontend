@@ -6,12 +6,12 @@ import { PagesRoutingModule } from './pages/pages.routing';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', component: NopagefoundComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '**',component:NopagefoundComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
             PagesRoutingModule,
             AuthRoutingModule
           ],
