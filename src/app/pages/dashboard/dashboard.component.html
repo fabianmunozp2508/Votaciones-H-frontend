@@ -26,7 +26,7 @@
         </div>
         <div>{{imagen.vote}} <label class="fw-bold">Votos</label></div>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary m-4" type="submit"  (click)="votacion(imagen.usuario.uid)" (click)="vote(imagen._id)" *ngIf="!votaciones">Votar</button>
+          <button class="btn btn-primary m-4" type="submit"  (click)="votacion(usuario.uid)" (click)="vote(imagen._id)" *ngIf="!votaciones">Votar</button>
           <p class="text-danger text-center fw-bold" type="text"  *ngIf="votaciones">Usted ya ha votado</p>
         </div>
     </div>

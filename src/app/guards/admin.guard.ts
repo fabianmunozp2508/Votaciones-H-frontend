@@ -17,7 +17,7 @@ canActivate(
 next: ActivatedRouteSnapshot,
 state: RouterStateSnapshot): boolean {
 if (this.usuarioService.role === 'ADMIN_ROLE') {
-  Swal.fire('Bienvenido Administrador');
+  
 return true;
 } else {
   Swal.fire('No esta Autorizado a esta ruta');

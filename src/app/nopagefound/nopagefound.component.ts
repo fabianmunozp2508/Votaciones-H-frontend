@@ -14,9 +14,7 @@ export class NopagefoundComponent implements OnInit {
     this.home()
   }
  home(){
-  setTimeout(()=>{
-    console.log('Hola tiempo')
     this.router.navigateByUrl('dashboard/aboutme');
-  },4000);
+
  }
 }

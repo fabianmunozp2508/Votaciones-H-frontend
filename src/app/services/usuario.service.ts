@@ -43,6 +43,9 @@ get uid():string {
   return this.usuario.uid || '';
 }
 
+get img():string {
+  return this.usuario.img;
+}
 get headers(){
   return {
   headers:{
@@ -113,7 +116,7 @@ cargarUsuarios( desde: number = 0 ) {
           .pipe(
             map( resp => {
               const usuarios = resp.usuarios.map(
-                user => new Usuario(user.nombre, user.email,user.role,user.voto,user.voto,'', user.img, user.facebook, user.uid )
+                user => new Usuario(user.nombre,user.email,'',user.img,user.voto,user.publicado,user.role,user.facebook_id,user.provider_id,user.google,user.uid )
               );
               return {
                 total: resp.total,
@@ -122,6 +125,7 @@ cargarUsuarios( desde: number = 0 ) {
             })
           )
 }
+
 validarToken(): Observable<boolean> {
   return this.http.get(`${ base_url}/login/renew`, {
     headers:{
@@ -129,8 +133,8 @@ validarToken(): Observable<boolean> {
     }
   }).pipe(
     map(( resp : any)=>{
-      const { email, facebook, nombre, role,voto,publicado, img = '', uid } = resp.usuario;
-        this.usuario = new Usuario( nombre, email, role,voto,publicado, img, facebook, role, uid );
+      const { nombre,email,img,voto,publicado,role,facebook_id,provider_id,google,uid } = resp.usuario;
+        this.usuario = new Usuario(nombre,email,'',img,voto,publicado,role,facebook_id,provider_id,google,uid );
 
       this.guardarLocalStorage( resp.token, resp.menu );
       return true;
@@ -154,6 +158,28 @@ cargarVoto( usuario: Usuario ) {
     const url = `http://localhost:8080/vph/auth/facebook/token`;
     return this.http.get(url,this.headers);
 
+  }
+  googleInit() {
+
+    return new Promise<void>( resolve => {
+      gapi.load('auth2', () => {
+        this.auth2 = gapi.auth2.init({
+          client_id: '596517242485-pro1tcm1ok3g7s7865k47qg90757gs78.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+        });
+
+        resolve();
+      });
+    })
+
+  }
+  loginGoogle( token ) {
+    return this.http.post(`${ base_url }/login/google`, { token } )
+                .pipe(
+                  tap( (resp: any) => {
+                    this.guardarLocalStorage( resp.token, resp.menu );
+                  })
+                );
   }
 
 }

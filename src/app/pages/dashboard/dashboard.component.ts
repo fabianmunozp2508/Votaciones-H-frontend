@@ -93,6 +93,7 @@ ImagenesUser() {
             popup: 'animate__animated animate__fadeOutUp'
           }
         })
+        this.router.navigateByUrl('http://localhost:4200/dashboard')
       }
     })
     }
@@ -115,12 +116,7 @@ votacion(uid: string) {
     this.usuarioService.VotarNulo(uid )
       .subscribe( resp => {
         this.ImagenesUser();
-        Swal.fire(
-          'Fotografia Votada',
-          ` Votaste Exitosamente`,
-          'success'
-        );
-        this.router.navigateByUrl(`/dashboard`)
+
       });
   }
 }
